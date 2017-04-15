@@ -1,5 +1,5 @@
 ﻿using System;
-
+using SqlReportHelper.Common;
 namespace SqlReportHelper
 {
     class Program
@@ -7,6 +7,7 @@ namespace SqlReportHelper
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+          FileHelper.ReadSetting();
         }
     }
 }
