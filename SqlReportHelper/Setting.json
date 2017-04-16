@@ -1,6 +1,4 @@
 ﻿{
   "connectionString": "Data Source=DESKTOP-D1CMBT0;Integrated Security=True",
-  "overWriteFile": false,
-  "addNewSheet": true,
- 
+  "overWriteFile": true
 }

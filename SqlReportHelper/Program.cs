@@ -9,12 +9,18 @@ namespace SqlReportHelper
     {
         static void Main(string[] args)
         {
-
+            // Read setting from json file and sync to app model.
             AppSetting setting = FileHelper.ReadSetting();
+            setting.UpdateAppModel();
+            // Get the list of the scripts
             List<Script> scripts = FileHelper.ReadScripts();
-            DataHelper.ExecuteScripts(scripts,setting);
+            // Run scripts and get the sql data.
+            DataHelper.ExecuteScripts(scripts);
+            Console.WriteLine("\n");
+            // Export the script sql data into excel.
             ExcelHelper.ExportFiles(scripts);
-            //DataHelper.ExecuteScript("SELECT * FROM [WhereEat].[Common].users", setting);
+
+            Console.ReadKey();
         }
     }
 }

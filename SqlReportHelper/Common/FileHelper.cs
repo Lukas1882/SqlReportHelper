@@ -38,7 +38,7 @@ namespace SqlReportHelper.Common
                 Directory.CreateDirectory(AppModel.scriptFolder);
             foreach (string filePath in Directory.GetFiles(AppModel.scriptFolder))
             {
-                string fileName = Path.GetFileName(filePath);
+                string fileName = Path.GetFileNameWithoutExtension(filePath);
                 scripts.Add(new Script(fileName, File.ReadAllText(filePath)));
             }
             return scripts;

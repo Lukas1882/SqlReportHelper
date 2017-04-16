@@ -12,22 +12,29 @@ namespace SqlReportHelper.Common
 {
     class DataHelper
     {
-        public static void ExecuteScripts(List<Script> scripts, AppSetting setting)
+        public static void ExecuteScripts(List<Script> scripts)
         {
             foreach (Script script in scripts)
             {
-                ExecuteScript(script, setting);
+                try
+                {
+                    ExecuteScript(script);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(script.name + " : Error. Message : " + ex.Message);
+                }
             }
         }
 
-        public static void ExecuteScript(Script script, AppSetting setting)
+        public static void ExecuteScript(Script script)
         {
             // connect data source
-            var connection = new SqlConnection(setting.connectionString);
+            var connection = new SqlConnection(AppModel.connectionString);
             try
             {
                 connection.Open();
-                Console.WriteLine("Data Source is Connected.");
+                Console.WriteLine(script.name +" : Data surce is connected.");
             }
             catch (Exception ex)
             {
@@ -37,8 +44,16 @@ namespace SqlReportHelper.Common
             // execute sql script
             var command = new SqlCommand(script.contents, connection);
             command.CommandType = CommandType.Text;
-            SqlDataReader reader = command.ExecuteReader();
-            script.sqlData = reader;// Serialize(reader);
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                script.sqlData = reader;
+                Console.WriteLine(script.name + " : Sql Script Executed.");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
