@@ -8,7 +8,7 @@ namespace SqlReportHelper.Models
     class AppModel
     {
         public static string settingPath = "Setting.json";
-        public static string scriptFolder = "/Scripts/";
+        public static string scriptFolder = Directory.GetCurrentDirectory() + "/Scripts/";
         public static string reportFolder = Directory.GetCurrentDirectory() +"/Reports/";
     }
 }

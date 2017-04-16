@@ -12,9 +12,15 @@ namespace SqlReportHelper.Common
 {
     class DataHelper
     {
+        public static void ExecuteScripts(List<Script> scripts, AppSetting setting)
+        {
+            foreach (Script script in scripts)
+            {
+                ExecuteScript(script, setting);
+            }
+        }
 
-
-        public static List<string> ExecuteScript(string script, AppSetting setting)
+        public static void ExecuteScript(Script script, AppSetting setting)
         {
             // connect data source
             var connection = new SqlConnection(setting.connectionString);
@@ -29,27 +35,10 @@ namespace SqlReportHelper.Common
             }
 
             // execute sql script
-            var command = new SqlCommand(script, connection);
+            var command = new SqlCommand(script.contents, connection);
             command.CommandType = CommandType.Text;
-      
             SqlDataReader reader = command.ExecuteReader();
-            string dd =reader.ToString();
-
-            var names = Enumerable.Range(0, reader.FieldCount).Select(reader.GetName).ToList();
-            while (reader.Read())
-            {
-                var expando = new ExpandoObject() as IDictionary<string, object>;
-                for (int i = 0; i < names.Count; i++)
-                {
-                    expando[names[i]] = reader[names[i]];
-                    string ddd = expando[names[i]].ToString();
-                    Type type = reader.GetFieldType(i);
-                }
-            }
-            return null;
+            script.sqlData = reader;// Serialize(reader);
         }
-
-
-
     }
 }
