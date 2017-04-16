@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Text;
 using SqlReportHelper.Models;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace SqlReportHelper.Common
 {
     class FileHelper
     {
-        public static Setting ReadSetting()
+        public static AppSetting ReadSetting()
         {
             string fileStr = String.Empty;
             try
             {
-              fileStr = System.IO.File.ReadAllText(HelperModel.settingPath);
+              fileStr = File.ReadAllText(AppModel.settingPath);
             }
-            catch (System.IO.FileNotFoundException ex)
+            catch (FileNotFoundException ex)
             {
                 throw ex;
             }
-
             try
             {
-                Setting setting = JsonConvert.DeserializeObject<Setting>(fileStr);
+                AppSetting setting = JsonConvert.DeserializeObject<AppSetting>(fileStr);
                 return setting;
             }
             catch (Exception ex)
@@ -31,5 +31,17 @@ namespace SqlReportHelper.Common
             }
         }
 
+        public static List<Script> ReadScripts()
+        {
+            List<Script> scripts = new List<Script>();
+            if (!Directory.Exists(AppModel.scriptFolder))
+                Directory.CreateDirectory(AppModel.scriptFolder);
+            foreach (string filePath in Directory.GetFiles(AppModel.scriptFolder))
+            {
+                string fileName = Path.GetFileName(filePath);
+                scripts.Add(new Script(fileName, File.ReadAllText(filePath)));
+            }
+            return scripts;
+        }
     }
 }

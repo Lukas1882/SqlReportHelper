@@ -1,5 +1,7 @@
 ﻿using System;
 using SqlReportHelper.Common;
+using SqlReportHelper.Models;
+ 
 namespace SqlReportHelper
 {
     class Program
@@ -7,7 +9,9 @@ namespace SqlReportHelper
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-          FileHelper.ReadSetting();
+        AppSetting setting =    FileHelper.ReadSetting();
+            ExcelHelper.ExportFile(null);
+          DataHelper.ExecuteScript("SELECT * FROM[WhereEat].[Common].users", setting);
         }
     }
 }

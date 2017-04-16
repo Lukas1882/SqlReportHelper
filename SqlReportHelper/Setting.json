@@ -1,5 +1,6 @@
 ﻿{
-  "connectionString": "Data Source=DESKTOP-D1CMBT0;Initial Catalog=WhereEat;Integrated Security=True",
+  "connectionString": "Data Source=DESKTOP-D1CMBT0;Integrated Security=True",
   "overWriteFile": false,
-  "addNewSheet": true
+  "addNewSheet": true,
+ 
 }
