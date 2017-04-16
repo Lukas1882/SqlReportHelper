@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlReportHelper", "SqlRepor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlReportHelper_Test", "SqlReportHelper_Test\SqlReportHelper_Test.csproj", "{DE5AEB19-6A6E-47FD-9FB0-DCD6A96950D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlReportHelper_Data", "SqlReportHelper_Data\SqlReportHelper_Data.csproj", "{9A3F3AA7-DFB3-47DB-9641-766027D2D7AF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{DE5AEB19-6A6E-47FD-9FB0-DCD6A96950D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE5AEB19-6A6E-47FD-9FB0-DCD6A96950D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE5AEB19-6A6E-47FD-9FB0-DCD6A96950D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A3F3AA7-DFB3-47DB-9641-766027D2D7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A3F3AA7-DFB3-47DB-9641-766027D2D7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A3F3AA7-DFB3-47DB-9641-766027D2D7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A3F3AA7-DFB3-47DB-9641-766027D2D7AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
