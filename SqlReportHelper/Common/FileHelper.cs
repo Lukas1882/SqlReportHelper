@@ -7,14 +7,14 @@ using System.IO;
 
 namespace SqlReportHelper.Common
 {
-    class FileHelper
+    public class FileHelper
     {
-        public static AppSetting ReadSetting()
+        public static AppSetting ReadSetting(string filePath)
         {
             string fileStr = String.Empty;
             try
             {
-              fileStr = File.ReadAllText(AppModel.settingPath);
+              fileStr = File.ReadAllText(filePath);
             }
             catch (FileNotFoundException ex)
             {
@@ -42,6 +42,11 @@ namespace SqlReportHelper.Common
                 scripts.Add(new Script(fileName, File.ReadAllText(filePath)));
             }
             return scripts;
+        }
+
+        public static string GetRootPath()
+        {
+            return AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("bin"));
         }
     }
 }

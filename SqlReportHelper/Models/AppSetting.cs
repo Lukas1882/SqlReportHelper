@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SqlReportHelper.Models
 {
-    class AppSetting
+    public class AppSetting
     {
         public  string connectionString { get; set; }
         public  bool overWriteFile { get; set; }

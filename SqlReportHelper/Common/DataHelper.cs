@@ -10,7 +10,7 @@ using System.Dynamic;
 
 namespace SqlReportHelper.Common
 {
-    class DataHelper
+    public class DataHelper
     {
         public static void ExecuteScripts(List<Script> scripts)
         {

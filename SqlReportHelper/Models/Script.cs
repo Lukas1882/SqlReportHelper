@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SqlReportHelper.Models
 {
-    class Script
+    public class Script
     {
         public string name { get; set; }
         public string contents { get; set; }

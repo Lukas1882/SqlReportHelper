@@ -1,0 +1,4 @@
+﻿{
+  "connectionString": "this is a test string",
+  "overWriteFile": true
+}

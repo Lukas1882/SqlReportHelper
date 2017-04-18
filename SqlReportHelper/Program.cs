@@ -10,7 +10,7 @@ namespace SqlReportHelper
         static void Main(string[] args)
         {
             // Read setting from json file and sync to app model.
-            AppSetting setting = FileHelper.ReadSetting();
+            AppSetting setting = FileHelper.ReadSetting(AppModel.settingPath);
             setting.UpdateAppModel();
             // Get the list of the scripts
             List<Script> scripts = FileHelper.ReadScripts();

@@ -8,7 +8,7 @@ using SqlReportHelper.Models;
 
 namespace SqlReportHelper.Common
 {
-    class ExcelHelper
+    public class ExcelHelper
     {
         internal static void ExportFiles(List<Script> scripts)
         {
