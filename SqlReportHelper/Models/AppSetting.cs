@@ -16,6 +16,11 @@ namespace SqlReportHelper.Models
             AppModel.overWriteFile = overWriteFile;
             AppModel.addNewSheet = addNewSheet;
         }
+
+        public void Returns()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

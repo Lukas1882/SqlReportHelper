@@ -40,6 +40,7 @@ namespace SqlReportHelper.Common
                 ws.Row(1).Style.Font.Bold = true;
                 xp.SaveAs(stream);
                 xp.Dispose();
+                ws.Dispose();
                 Console.WriteLine(script.name + " : Report created successfully.");
                 Console.WriteLine("Report saved as : " + Path.GetFileName(filePath));
                 Console.WriteLine("\n");
